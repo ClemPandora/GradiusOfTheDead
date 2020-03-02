@@ -15814,7 +15814,7 @@ TextureImporter:
         width: 15
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -15822,6 +15822,27 @@ TextureImporter:
       bones: []
       spriteID: 51feefbbb14004370800000000000000
       internalID: 8304642230035869461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Gradius - Gradius_62
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1043
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9afb380579d4b670800000000000000
+      internalID: 8553700688955964063
       vertices: []
       indices: 
       edges: []
