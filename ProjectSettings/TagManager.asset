@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Player Bullet
   - Boundary
+  - Double Bullet
+  - Missile Bullet
+  - Ground
+  - Enemy
+  - Laser Bullet
+  - Enemy Bullet
+  - Barrier
   layers:
   - Default
   - TransparentFX

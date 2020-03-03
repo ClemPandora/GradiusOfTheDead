@@ -13,9 +13,10 @@ public class BonusManager : MonoBehaviour
     public BoolVariable laser;
     public IntVariable options;
     public IntVariable barrier;
-    
     private int _selected;
     private bool _activ;
+    public BoolVariable canMove;
+    public GameObject barrierObject;
     
     void Awake()
     {
@@ -29,7 +30,7 @@ public class BonusManager : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetButtonDown("Fire2") && _activ)
+        if(Input.GetButtonDown("Fire2") && _activ && canMove.value)
         {
             if (bonus[_selected].CanUse())
             {
@@ -40,23 +41,31 @@ public class BonusManager : MonoBehaviour
                 _activ = false;
             }
         }
+
+        if (Input.GetKeyDown("a"))
+        {
+            NextBonus();
+        }
     }
 
     public void NextBonus()
     {
-        if (_activ)
+        if (canMove.value)
         {
-            if (_selected < bonus.Length-1)
+            if (_activ)
             {
-                bonus[_selected].Deselect();
-                _selected++;
+                if (_selected < bonus.Length - 1)
+                {
+                    bonus[_selected].Deselect();
+                    _selected++;
+                    bonus[_selected].Select();
+                }
+            }
+            else
+            {
+                _activ = true;
                 bonus[_selected].Select();
             }
-        }
-        else
-        {
-            _activ = true;
-            bonus[_selected].Select();
         }
     }
 
@@ -93,10 +102,17 @@ public class BonusManager : MonoBehaviour
             //Option
             case 4:
                 options.value++;
+                ObjectPooler.Instance.IncreasePool("Player Bullet");
+                ObjectPooler.Instance.IncreasePool("Player Bullet");
+                ObjectPooler.Instance.IncreasePool("Laser Bullet");
+                ObjectPooler.Instance.IncreasePool("Laser Bullet");
+                ObjectPooler.Instance.IncreasePool("Double Bullet");
+                ObjectPooler.Instance.IncreasePool("Missile Bullet");
                 break;
             //Barrier
             case 5:
                 barrier.value = 4;
+                barrierObject.SetActive(true);
                 break;
         }
     }

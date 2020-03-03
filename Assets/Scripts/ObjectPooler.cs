@@ -48,6 +48,18 @@ public class ObjectPooler : MonoBehaviour
         }
         return null;
     }
+
+    public void IncreasePool(string tag)
+    {
+        foreach (ObjectPoolItem item in itemsToPool) {
+            if (item.objectToPool.CompareTag(tag))
+            {
+                GameObject obj = Instantiate(item.objectToPool);
+                obj.SetActive(false);
+                pooledObjects.Add(obj);
+            }
+        }
+    }
     
     [Serializable]
     public class ObjectPoolItem {

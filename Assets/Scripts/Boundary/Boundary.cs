@@ -60,7 +60,7 @@ public class Boundary : MonoBehaviour {
 		if (direction == BoundaryLocation.BOTTOM) {
       barrier.size = new Vector2(Mathf.Abs(topLeft.x) + Mathf.Abs(topRight.x) + overhang, boundaryWidth);
       barrier.offset = new Vector2(0, -boundaryWidth/2);
-			transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.pixelWidth / 2, 0, 1)) ;
+			transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.pixelWidth / 2, 38, 1)) ;
 		}
 		if (direction == BoundaryLocation.LEFT) {
       barrier.size = new Vector2(boundaryWidth, Mathf.Abs(lowerLeft.y) + Mathf.Abs(lowerRight.y) + overhang);
